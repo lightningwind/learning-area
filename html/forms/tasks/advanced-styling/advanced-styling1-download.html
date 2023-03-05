@@ -23,12 +23,48 @@
         font-size: 100%;
         padding: 0; margin: 0;
       }
+
+      input[type="search"] {
+        /* (1) Give search box consistent properties across browsers */
+        height: 30px;
+        width: 350px;
+        padding: 20px 40px;
+        border: 1px solid black;
+        border-radius: 25px;
+
+        /* (2) we can remove native system-level styling */
+        appearance: none;
+
+        /* (3) Which feature was the OS providing before removing native styling ? */
+
+        /* (4) How can we remove the position of the standard 
+        blue focus outline of search box? */
+        outline: none;
+
+        /* (5) What's wrong with getting rid of the blue focus outline? 
+        Yes, users can't tell when the search box has been activated... */
+      }
+
+      input[type="search"]:hover {
+        background: rgb(232, 240, 254);
+      }
+
+      input[type="search"] + div {
+        position: relative; 
+      }
+
+      input[type="search"] + div::after {
+        content: url("./search-24px.png");
+        position: absolute;
+        top: -30px;
+        left: 15px;
+      }
     </style>
   </head>
 
   <body>
     <form>
-      <input type="search" name="search" id="search" aria-label="Search our site">
+      <input type="search" name="search" id="search" aria-label="Search our site" placeholder="Search">
       <div></div>
     </form>
   </body>

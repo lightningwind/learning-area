@@ -17,6 +17,7 @@
       }
 
       button, label, input, select, progress, meter {
+        /* Apply global normalizing CSS */
         display: block;
         font-family: inherit;
         font-size: 100%;
@@ -27,6 +28,8 @@
         height: 30px;
       }
 
+      /* === Stylize select box === */
+
       select {
         appearance: none;
       }
@@ -36,6 +39,7 @@
       }
 
       .select-wrapper::after {
+        /* Create our own icon using generated content */
         content: "▼";
         font-size: 1rem;
         top: 6px;
@@ -47,6 +51,7 @@
       input[type="datetime-local"], 
       input[type="color"], 
       select {
+        /* Add some uniform shadow and rounded corners */
         box-shadow: inset 1px 1px 3px ccc;
         border-radius: 5px;
       }
@@ -59,6 +64,43 @@
         width: 60%;
         margin: 0 auto;
       }
+
+      input[type="range"] {
+        appearance: none; 
+        background: red; 
+        height: 2px; 
+        padding: 0; 
+        outline: 1px solid transparent; 
+      }
+
+      input[type="color"] {
+        border: 0;
+        padding: 0;
+      }
+
+      /* === Stylize file picker === */
+      input[type="file"] {
+        height: 0;
+        padding: 0;
+        opacity: 0;
+      }
+
+      label[for="file"] {
+        box-shadow: 1px 1px 3px #ccc; 
+        background: linear-gradient(to bottom, #eee, #ccc); 
+        border: 1px solid rgb(169, 169, 169);
+        border-radius: 5px;
+        text-align: center; 
+        line-height: 1.5;
+      }
+
+      label[for="file"]:hover {
+        background: linear-gradient(to bottom, #fff, #ddd); 
+      }
+
+      label[for="file"]:active {
+        box-shadow: inset 1px 1px 3px #ccc;
+      }
     </style>
   </head>
 
@@ -67,7 +109,7 @@
       <div>
         <label for="select">Select box:</label>
         <div class="select-wrapper">
-            <select id="select" name="select">
+            <select id="select" name="select" multiple>
               <option>Banana</option>
               <option>Cherry</option>
               <option>Lemon</option>

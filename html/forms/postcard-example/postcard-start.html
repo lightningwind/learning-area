@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width">
     <title>Postcard example</title>
     <style>
+      /* === OVERALL LAYOUT === */
+
       @font-face {
         font-family: "handwriting";
         src: url("fonts/journal-webfont.woff2") format("woff2"), 
@@ -37,7 +39,7 @@
         padding: 1em;
         background: #fff url("background.jpg");
 
-        /* grid */
+        /* grid stuff */
         display: grid; 
         grid-gap: 20px;
         grid-template-columns: repeat(2, 1fr);
@@ -56,6 +58,8 @@
       #from, #reply {
         display: flex; 
       }
+
+      /* === LABELS AND CONTROLS === */
 
       label {
         font: 0.8em "typewriter", sans-serif; 
@@ -84,6 +88,8 @@
         margin: 10px 0 0 -10px; 
         width: 100%; 
         height: 90%;
+
+        border-right: 1px solid; 
 
         overflow: auto; 
       }
