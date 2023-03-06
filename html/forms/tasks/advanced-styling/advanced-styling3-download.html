@@ -66,6 +66,45 @@
         width: 60%;
         margin: 0 auto;
       }
+
+      /* (1) Add specific styling to visually indicate which inputs 
+      are required */
+      input + span {
+        position: relative; 
+      }
+
+      input:required + span::after {
+        content: "required"; 
+        font-size: 0.7rem;
+        color: #fff;
+        background-color: #000;
+        padding: 5px 10px;
+        position: absolute;
+        top: -26px;
+        left: -70px;
+      }
+
+      /* (2): Provide a useful indicator as to whether or not the data
+      entered is valid */
+      input:invalid {
+        border: 2px solid red;
+      }
+
+      input + span::before {
+        position: absolute; 
+        right: -20px;
+        top: 5px;
+      }
+
+      input:invalid + span::before {
+        content: "✖"; 
+        color: red;
+      }
+
+      input:valid + span::before {
+        content: "✓"; 
+        color: blue;
+      }
     </style>
   </head>
 
