@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full built-in validation example</title>
+
+    <style>
+        form {
+            font: 1em sans-serif; 
+            max-width: 320px; 
+        }
+
+        p > label {
+            display: block; 
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea,
+        fieldset {
+            width: 100%; 
+            border: 1px solid #333; 
+            box-sizing: border-box; 
+        }
+
+        input:invalid {
+            box-shadow: 0 0 5px 1px red;
+        }
+
+        input:focus:invalid {
+            box-shadow: none; 
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        
+            <fieldset>
+                <legend>Do you have a driver's license? <span aria-label="required">*</span></legend>
+                <input type="radio" name="driver" id="r1" required value="yes">
+                <label for="r1">Yes</label>
+                <input type="radio" name="driver" id="r2" value="no">
+                <label for="r2">No</label>
+            </fieldset>
+        
+        <p>
+            <label for="n1">How old are you?</label>
+            <input type="number" name="age" id="n1" min="12" max="120" step="1" pattern="\d+" />
+        </p>
+        <p>
+            <label for="t1">What's your favourite fruit? <span aria-label="required">*</span></label>
+            <input type="text" name="fruit" id="t1" list="l1" required />
+            <datalist id="l1">
+                <option value="banana">Banana</option>
+                <option value="cherry">Cherry</option>
+                <option value="apple">Apple</option>
+                <option value="strawberry">Strawberry</option>
+                <option value="lemon">Lemon</option>
+                <option value="orange">Orange</option> 
+            </datalist>
+        </p>
+        <p>
+            <label for="t2">What's your email address?</label>
+            <input type="email" name="email" id="t2" />
+        </p>
+        <p>
+            <label for="t3">Leave a short message</label>
+            <textarea name="msg" id="t3" cols="" rows="5" maxlength="140"></textarea>
+        </p>
+        <p>
+            <button>Submit</button>
+        </p>
+    </form>
+</body>
+</html>
