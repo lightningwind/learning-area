@@ -15,20 +15,36 @@
       * {
         box-sizing: border-box;
       }
+
+      input:valid {
+        border: 2px solid black;
+      }
+
+      input:invalid {
+        border: 2px dashed red;
+      }
     </style>
   </head>
 
   <body>
     <form>
       <label for="mail">I would like you to provide me with an e-mail address:</label>
-      <input type="email" id="mail" name="mail">
+      <input type="email" id="mail" name="mail" required minlength="10">
       <button>Submit</button>
     </form>
   </body>
   <script>
     const email = document.getElementById("mail");
 
-
+    email.addEventListener("input", (event) => {
+      if (email.validity.typeMismatch) {
+        email.setCustomValidity("Email is not in the correct format");
+      } else if (email.validity.tooShort) {
+        email.setCustomValidity("Email too short");
+      } else {
+        email.setCustomValidity("");
+      }
+    })
   </script>
 
 </html>
